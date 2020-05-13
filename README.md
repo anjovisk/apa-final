@@ -2,7 +2,7 @@
 Trabalho final de Análise, Projeto e Avaliação de Arquitetura de Software
 
 # Estilo Arquitetural Geral
-MVVM
+A aplicação utiliza o estimo arquitetural MVVM implementado com a linguagem JAVA.
 
 # Estilo Arquitetural do Domínio
 O estilo arquitetural Clean Architecture  ao definir e organizar o domínio da aplicação e a separação das responsabilidades.
