@@ -9,6 +9,12 @@ public class InscricaoEfetuadaDTO {
 	private String nomeAluno;
 	private LocalDateTime data;
 	
+	private InscricaoEfetuadaDTO() {}
+	
+	public static InscricaoEfetuadaDTO getInstance() {
+		return new InscricaoEfetuadaDTO();
+	}
+	
 	public Long getIdDisciplina() {
 		return idDisciplina;
 	}

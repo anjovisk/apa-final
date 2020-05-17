@@ -9,4 +9,5 @@ public interface Aluno {
 	String getNome();
 	void setNome(String nome);
 	<T extends Matricula> List<T> getMatriculas();
+	Matricula iniciarMatricula();
 }

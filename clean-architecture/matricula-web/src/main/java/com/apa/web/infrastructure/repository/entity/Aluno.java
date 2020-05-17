@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.apa.domain.aluno.AbstractAluno;
+import com.apa.domain.matricula.MatriculaFactory;
 
 @Entity
 public class Aluno extends AbstractAluno implements com.apa.domain.aluno.Aluno {
@@ -37,5 +38,9 @@ public class Aluno extends AbstractAluno implements com.apa.domain.aluno.Aluno {
 	@SuppressWarnings("unchecked")
 	public List<Matricula> getMatriculas() {
 		return matriculas;
+	}
+	@Override
+	public MatriculaFactory getMatriculaFactory() {
+		return com.apa.web.infrastructure.repository.entity.factory.MatriculaFactory.getInstance();
 	}
 }

@@ -38,7 +38,7 @@ public abstract class AbstractInscricaoUseCase implements InscricaoUseCase {
 		Disciplina disciplina = turma.selecionarDisciplina(solicitacaoInscricao.getIdDisciplina()).orElseThrow(() -> new MatriculaException("Disciplina não encontrada."));
 		Inscricao inscricao = disciplina.inscrever(matricula);
 		inscricao = inscricaoRepository.salvar(inscricao);
-		InscricaoEfetuadaDTO inscricaoEfetuada = new InscricaoEfetuadaDTO()
+		InscricaoEfetuadaDTO inscricaoEfetuada = InscricaoEfetuadaDTO.getInstance()
 				.comIdAluno(aluno.getId())
 				.comNomeAluno(aluno.getNome())
 				.comIdDisciplina(disciplina.getId())

@@ -9,8 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.apa.domain.disciplina.inscricao.AbstractInscricao;
+
 @Entity
-public class Inscricao implements com.apa.domain.disciplina.inscricao.Inscricao {
+public class Inscricao extends AbstractInscricao implements com.apa.domain.disciplina.inscricao.Inscricao {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -25,14 +27,14 @@ public class Inscricao implements com.apa.domain.disciplina.inscricao.Inscricao 
 	public Matricula getMatricula() {
 		return matricula;
 	}
-	public void setMatricula(Matricula matricula) {
-		this.matricula = matricula;
+	public void setMatricula(com.apa.domain.matricula.Matricula matricula) {
+		this.matricula = (Matricula)matricula;
 	}
 	public Disciplina getDisciplina() {
 		return disciplina;
 	}
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
+	public void setDisciplina(com.apa.domain.disciplina.Disciplina disciplina) {
+		this.disciplina = (Disciplina)disciplina;
 	}
 	public LocalDateTime getData() {
 		return data;

@@ -1,6 +1,7 @@
 package com.apa.web.infrastructure.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import com.apa.controller.AbstractInscricaoController;
 import com.apa.controller.dto.InscricaoRequestDTO;
 import com.apa.controller.dto.InscricaoResponseDTO;
 import com.apa.controller.dto.ResponseDTO;
+import com.apa.controller.dto.ResponseDTO.ResponseStatus;
 import com.apa.controller.dto.converter.Converter;
 
 @RestController
@@ -31,6 +33,8 @@ public class InscricaoController extends AbstractInscricaoController implements 
 	public ResponseEntity<?> getInscricoes(@PathVariable("idAluno") Long idAluno, 
 			@RequestBody InscricaoRequestDTO inscricaoRequest) {
 		ResponseDTO<InscricaoResponseDTO> inscricaoResponse = inscrever(inscricaoRequest);
-		return ResponseEntity.ok().body(inscricaoResponse);
+		return ResponseEntity
+				.status(inscricaoResponse.getStatus().equals(ResponseStatus.OK) ? HttpStatus.OK : HttpStatus.BAD_REQUEST)
+				.body(inscricaoResponse);
 	}
 }
