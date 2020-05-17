@@ -8,6 +8,8 @@ import com.apa.application.repository.AlunoRepository;
 import com.apa.application.repository.InscricaoRepository;
 import com.apa.application.repository.MatriculaRepository;
 import com.apa.application.repository.TurmaRepository;
+import com.apa.application.usecases.ConfirmaMatriculaUseCase;
+import com.apa.application.usecases.ConfirmaMatriculaUseCaseImpl;
 import com.apa.application.usecases.IniciaMatriculaUseCase;
 import com.apa.application.usecases.IniciaMatriculaUseCaseImpl;
 import com.apa.application.usecases.InscricaoUseCase;
@@ -32,5 +34,10 @@ public class UseCasesConfig {
 	@Bean 
 	public IniciaMatriculaUseCase iniciaMatriculaUseCase() {
 		return new IniciaMatriculaUseCaseImpl(alunoRepository, matriculaRepository);
+	}
+	
+	@Bean 
+	public ConfirmaMatriculaUseCase confirmaMatriculaUseCase() {
+		return new ConfirmaMatriculaUseCaseImpl(alunoRepository, matriculaRepository);
 	}
 }
